@@ -1,22 +1,24 @@
 // src/Page1.js
 
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Button, Text } from 'react-native';
 
 //import {StackNavigator} from '../index.js';
-
-const Page1 = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Home</Text>
-    <Button 
-      title="Ir para About"
-      onPress={() => navigation.navigate('Page2') }
-    />
-  </View>
-);
-
-Page1.navigationOptions = {
-  title: 'Home',
-}
-
-export default Page1;
+export default class Page1 extends Component {
+  static navigationOptions = {
+    title: 'page1',
+    headerRight:<View style={{flex:1, backgroundColor: 'black', height: 50}}><Text>HOME</Text></View>
+  };
+  
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Home</Text>
+        <Button 
+          title="Ir para About"
+          onPress={() => this.props.navigation.navigate('About') }
+        />
+      </View>
+    )
+  }
+};

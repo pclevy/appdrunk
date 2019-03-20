@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
-import {StyleSheet, Button, Text, View, Image} from 'react-native';
+import {StyleSheet, Button, Text, View, Image, Dimensions, ImageProperties} from 'react-native';
 
 export default class Presentation extends Component {
+
+  static navigationOptions = {
+    title: 'Presentation',
+    headerRight:<View style={{flex:1, backgroundColor: 'black', height: 50}}><Text>PRESENTATION</Text></View>
+  };
+
   render() {
     return (
       <View style={{
@@ -34,20 +40,23 @@ export default class Presentation extends Component {
         </View>
         <View style={{flexDirection: 'row'}}>
           <View style={{ }}>
+        {/*<Image resizeMode={'cover'} style={{ flex:1, height:200, width: null }} source={require('../images/react-native-mini-logo.jpg')} /> */}
             <Image source={require('../images/react-native-mini-logo.jpg')} />
           </View>
           <View style={{id:'bebum'}}>
             <Image source={require('../images/drunk3.gif')}/>
           </View>
         </View>
-    
         
         <Button 
           title="Ir para Home"
-          onPress={() => navigation.navigate('Home') }
-          //onPress={() => {alert('Home');} }
+          onPress={() => this.props.navigation.navigate('Home') }
           />
 
+        {/* <Button 
+          title="Ir para About"
+          onPress={() => this.props.navigation.navigate('About') }
+        /> */}
 
     </View>
     );

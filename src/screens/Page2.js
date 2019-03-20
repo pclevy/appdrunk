@@ -1,27 +1,22 @@
-// src/Page2.js
+import React, { Component } from 'react';
 
-import React from 'react';
-import { View, Button, Text } from 'react-native';
+import { View, Text, Button, AsyncStorage } from 'react-native';
 
-// const Page2 = () => (
-//   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//     <Text>About</Text>
-//   </View>
-// );
 
-const Page2 = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>About</Text>
-    <Button 
-      title="Ir para Home"
-      onPress={() => navigation.navigate('Page1') }
+export default class Page2 extends Component {
+  static navigationOptions = {
+    title: 'page2',
+    headerRight:<View style={{flex:1, backgroundColor: 'black', height: 50}}><Text>ABOUT</Text></View>
+};
+    render() {
+    return (
+        <View>
+            <Button 
+      title="Ir para Presentation"
+      onPress={() => this.props.navigation.navigate('Presentation') }
     />
-  </View>
-);
+          </View>
 
-/* Page2.navigationOptions = {
-  title: 'About',
-} */
-
-
-export default Page2;
+    );
+  }
+}
